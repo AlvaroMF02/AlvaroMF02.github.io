@@ -1,465 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Data Analyst & AI Enthusiast</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .bg-dark-navy {
-            background-color: #001f3f;
-        }
-        
-        .text-gold {
-            color: #D4AF37;
-        }
-        
-        .border-gold {
-            border-color: #D4AF37;
-        }
-        
-        .badge {
-            transition: all 0.3s ease;
-        }
-        
-        .badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #D4AF37;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
+    <title>Portafolio Álvaro Martínez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Header/Navigation -->
-    <header class="bg-dark-navy text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold text-gold">Javier Mendoza</div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link">Sobre mí</a>
-                    <a href="#skills" class="nav-link">Habilidades</a>
-                    <a href="#projects" class="nav-link">Proyectos</a>
-                    <a href="#contact" class="nav-link">Contacto</a>
-                </nav>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <div class="flex flex-col space-y-3">
-                    <a href="#about" class="block py-2">Sobre mí</a>
-                    <a href="#skills" class="block py-2">Habilidades</a>
-                    <a href="#projects" class="block py-2">Proyectos</a>
-                    <a href="#contact" class="block py-2">Contacto</a>
-                </div>
-            </div>
-        </div>
+
+<body>
+
+    <header>
+        <h1>Álvaro Martínez Flores</h1>
+        <p>Data Analyst & AI Enthusiast · Explorando ideas con datos e IA</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-dark-navy to-gray-900 text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Javier Mendoza</h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-gold mb-6">Data Analyst & AI Enthusiast</h2>
-            <p class="text-xl max-w-2xl mx-auto">Transformando datos en decisiones estratégicas con análisis avanzados y modelos predictivos</p>
-            <div class="mt-10">
-                <a href="#contact" class="bg-gold text-dark-navy font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 inline-block mr-4">
-                    Contáctame
-                </a>
-                <a href="#" class="border-2 border-gold text-gold font-bold px-8 py-3 rounded-full hover:bg-gold hover:text-dark-navy transition duration-300 inline-block">
-                    Descargar CV
-                </a>
+    <section>
+        <h2>Resumen profesional</h2>
+        <p>Desarrollador Back-End y Analista de Datos con especialización en Inteligencia Artificial y Big Data.
+            Experiencia en el desarrollo de APIs, tratamiento de datos estructurados, modelado de datos y creación de dashboards para análisis.
+            Dominio de Python, SQL y herramientas de visualización.</p>
+    </section>
+
+    <section>
+        <h2>Proyectos</h2>
+        <div class="proyectos">
+            <div class="card">
+                <h3>Dashboard de rayos</h3>
+                <p>Scraping de web meteorológica para visualizar caídas de rayos a nivel mundial en Power BI. Muestra intensidad, ubicación y frecuencia.</p>
+                <button>Ver más</button>
+            </div>
+            <div class="card">
+                <h3>Analisis de contaminación</h3>
+                <p>Monitorea de la contaminación del pueblo en el que me he criado, usando datos de la Junta de Andalucía, juntando todos los datos en un dashboard (alerta de nivel alto).</p>
+                <button>Ver más</button>
+            </div>
+            <div class="card">
+                <h3>Lectura automática de tickets</h3>
+                <p>Automatización que recibe una foto de un ticket por WhatsApp, usa OCR y ChatGPT para extraer los datos, y los guarda en Google Sheets con n8n.</p>
+                <button>Ver más</button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-dark-navy mb-12">Sobre Mí</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                         alt="Profile" class="rounded-lg shadow-xl w-full max-w-md mx-auto">
-                </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <p class="text-lg text-gray-700 mb-6">
-                        Analista de datos con 5 años de experiencia en la transformación de datos complejos en información accionable. 
-                        Apasionado por la inteligencia artificial y el aprendizaje automático, con experiencia en el desarrollo de 
-                        modelos predictivos para optimizar procesos empresariales.
-                    </p>
-                    <p class="text-lg text-gray-700 mb-8">
-                        Mi enfoque combina habilidades técnicas sólidas con una comprensión profunda de las necesidades comerciales, 
-                        permitiéndome crear soluciones que generan valor real para las organizaciones.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-dark-navy hover:text-gold transition duration-300">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-dark-navy hover:text-gold transition duration-300">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        <a href="#" class="text-dark-navy hover:text-gold transition duration-300">
-                            <i class="fas fa-envelope fa-2x"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="extras">
+        <h2>Extras</h2>
+        <ul>
+            <li>🎯 Tecnologías: Python · SQL · Power BI · scikit-learn · BeautifulSoup · n8n · Google Sheets</li>
+            <li>🔗 <a href="https://github.com/AlvaroMf02">GitHub</a> | <a
+                    href="https://www.linkedin.com/in/varomf/">LinkedIn</a> | <a
+                    href="mailto:alvaromarflo@gmail.com">Correo</a></li>
+            <li><a href="CV Alvaro Martinez.pdf" download>📄 Descargar CV</a></li>
+        </ul>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-dark-navy mb-12">Habilidades y Tecnologías</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <!-- Technical Skills -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-dark-navy mb-6 flex items-center">
-                        <i class="fas fa-code text-gold mr-3"></i> Habilidades Técnicas
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Análisis de datos exploratorios (EDA)
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Modelado predictivo y machine learning
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Visualización de datos y storytelling
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Procesamiento de datos a gran escala
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Automatización de procesos con Python
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Soft Skills -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-dark-navy mb-6 flex items-center">
-                        <i class="fas fa-users text-gold mr-3"></i> Habilidades Blandas
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Comunicación efectiva de hallazgos técnicos
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Trabajo en equipo multidisciplinario
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Pensamiento crítico y resolución de problemas
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Gestión de proyectos ágil
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-gold mr-2"></i> Adaptabilidad y aprendizaje continuo
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Technology Badges -->
-            <h3 class="text-xl font-semibold text-center text-dark-navy mb-8">Tecnologías que manejo</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fab fa-python text-2xl mr-2 text-blue-600"></i>
-                    <span>Python</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fas fa-database text-2xl mr-2 text-yellow-600"></i>
-                    <span>SQL</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fas fa-table text-2xl mr-2 text-green-600"></i>
-                    <span>Pandas</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fas fa-brain text-2xl mr-2 text-red-600"></i>
-                    <span>Scikit-learn</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fas fa-chart-line text-2xl mr-2 text-purple-600"></i>
-                    <span>Power BI</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fab fa-r-project text-2xl mr-2 text-blue-400"></i>
-                    <span>R</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fab fa-aws text-2xl mr-2 text-orange-500"></i>
-                    <span>AWS</span>
-                </div>
-                <div class="badge bg-white px-6 py-3 rounded-full shadow-md flex items-center">
-                    <i class="fas fa-project-diagram text-2xl mr-2 text-teal-500"></i>
-                    <span>TensorFlow</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-dark-navy mb-12">Proyectos Destacados</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i class="fas fa-chart-bar text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark-navy mb-2">Sistema de Recomendación</h3>
-                        <p class="text-gray-600 mb-4">Modelo de recomendación personalizada para plataforma de e-learning que aumentó las ventas en un 23%.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Scikit-learn</span>
-                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Pandas</span>
-                        </div>
-                        <a href="#" class="text-gold font-semibold hover:underline flex items-center">
-                            Ver más <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                    <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center">
-                        <i class="fas fa-robot text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark-navy mb-2">Detección de Fraude</h3>
-                        <p class="text-gray-600 mb-4">Modelo de machine learning para detectar transacciones fraudulentas con un 98% de precisión.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">TensorFlow</span>
-                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">SQL</span>
-                        </div>
-                        <a href="#" class="text-gold font-semibold hover:underline flex items-center">
-                            Ver más <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
-                        <i class="fas fa-chart-pie text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-dark-navy mb-2">Dashboard Analítico</h3>
-                        <p class="text-gray-600 mb-4">Panel interactivo para seguimiento de KPIs empresariales con actualización en tiempo real.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Power BI</span>
-                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">SQL</span>
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">DAX</span>
-                        </div>
-                        <a href="#" class="text-gold font-semibold hover:underline flex items-center">
-                            Ver más <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="border-2 border-gold text-gold font-bold px-8 py-3 rounded-full hover:bg-gold hover:text-dark-navy transition duration-300 inline-block">
-                    Ver todos los proyectos
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark-navy text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Contáctame</h2>
-            
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2">
-                    <p class="text-xl mb-8">
-                        ¿Interesado en trabajar juntos o tienes alguna pregunta? No dudes en contactarme.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <i class="fas fa-envelope text-gold text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-semibold">Correo Electrónico</h4>
-                                <p>javier.mendoza@example.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-gold text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-semibold">Ubicación</h4>
-                                <p>Madrid, España</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i class="fas fa-clock text-gold text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-semibold">Disponibilidad</h4>
-                                <p>Lunes a Viernes, 9:00 - 18:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10 flex space-x-6">
-                        <a href="#" class="bg-white text-dark-navy p-3 rounded-full hover:bg-gray-200 transition duration-300">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="#" class="bg-white text-dark-navy p-3 rounded-full hover:bg-gray-200 transition duration-300">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="#" class="bg-white text-dark-navy p-3 rounded-full hover:bg-gray-200 transition duration-300">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block mb-2">Nombre</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-gold">
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block mb-2">Correo Electrónico</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-gold">
-                        </div>
-                        
-                        <div>
-                            <label for="subject" class="block mb-2">Asunto</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-gold">
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block mb-2">Mensaje</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-gold"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="bg-gold text-dark-navy font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 w-full">
-                            Enviar Mensaje
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <div class="text-xl font-bold text-gold">Javier Mendoza</div>
-                    <p class="text-gray-400">Data Analyst & AI Enthusiast</p>
-                </div>
-                
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gold transition duration-300">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Javier Mendoza. Todos los derechos reservados.</p>
-            </div>
-        </div>
+    <footer>
+        © 2025 Álvaro Martínez Flores. Todos los derechos reservados.
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Add shadow to navbar on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-xl');
-            } else {
-                header.classList.remove('shadow-xl');
-            }
-        });
-    </script>
 </body>
+
 </html>
