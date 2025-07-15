@@ -55,21 +55,30 @@ h2 {
 }
 
 .card h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    color: #1e1e2f;
 }
 
 .card p {
     font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 
 .card button {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     background-color: #1e1e2f;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #3b3b5c;
 }
 
 .extras ul {
@@ -88,3 +97,5 @@ footer {
     padding: 1rem;
     font-size: 0.9rem;
 }
+
+
