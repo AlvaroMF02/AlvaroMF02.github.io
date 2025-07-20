@@ -1,6 +1,81 @@
-<html>
-    <body>
-        
-        <h1>En construcción :)</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Álvaro Martínez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Álvaro Martínez Flores</h1>
+        <p>Data Analyst & AI Enthusiast · Explorando ideas con datos e IA</p>
+    </header>
+
+    <section>
+        <h2>Resumen profesional</h2>
+        <p>Desarrollador Back-End y Analista de Datos con especialización en Inteligencia Artificial y Big Data.
+            Experiencia en el desarrollo de APIs, tratamiento de datos estructurados, modelado de datos y creación de
+            dashboards para análisis.
+            Dominio de Python, SQL y herramientas de visualización.</p>
+    </section>
+
+    <section>
+        <h2>Proyectos</h2>
+        <div class="proyectos">
+
+            <div class="card">
+                <h3>🌩 Dashboard en tiempo real de caídas de rayos</h3>
+                <p>Visualización interactiva de rayos a nivel mundial mediante datos en tiempo real extraídos de <a
+                        href="https://map.blitzortung.org/" target="_blank">Blitzortung</a> vía WebSocket. Los datos se
+                    almacenan en una base de datos SQL y se representan en Power BI, permitiendo explorar detalles como
+                    la ubicación, la hora, la polaridad y las estaciones que detectaron cada rayo.</p>
+                <p><strong>Herramientas:</strong> Python (asyncio, websockets), Power BI, MySQL</p>
+                <a href="strikewatch.html" class="button">Ver más</a>
+            </div>
+
+
+            <div class="card">
+                <h3>🏭 Análisis de contaminación en mi localidad</h3>
+                <p>Proyecto de análisis ambiental usando datos públicos de la Junta de Andalucía. Se automatiza la
+                    recolección de datos y se visualizan en un dashboard interactivo con alertas cuando los niveles
+                    superan los límites saludables.</p>
+                <p><strong>Herramientas:</strong> Python (pandas, matplotlib), Power BI, SQL, n8n (automatización)</p>
+                <button>Ver más</button>
+            </div>
+
+            <div class="card">
+                <h3>🧾 Lectura automática de tickets de compra</h3>
+                <p>Automatización que recibe fotos de tickets por WhatsApp, aplica OCR para extraer texto y utiliza
+                    ChatGPT para identificar productos, precios e IVA. Los datos se guardan en Google Sheets y se
+                    resumen en un dashboard.</p>
+                <p><strong>Herramientas:</strong> n8n, Tesseract OCR, ChatGPT, Google Sheets, Power BI (opcional)</p>
+                <button>Ver más</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="extras">
+        <h2>Extras</h2>
+        <ul>
+            <li>🎯 Tecnologías: Python · SQL · Power BI · scikit-learn · BeautifulSoup · n8n · Google Sheets</li>
+            <li>🔗 <a href="https://github.com/AlvaroMf02">GitHub</a> | <a
+                    href="https://www.linkedin.com/in/varomf/">LinkedIn</a> | <a
+                    href="mailto:alvaromarflo@gmail.com">Correo</a></li>
+            <li><a href="CV Alvaro Martinez.pdf" download>📄 Descargar CV</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        © 2025 Álvaro Martínez Flores. Todos los derechos reservados.
+    </footer>
+
+</body>
+
 </html>
