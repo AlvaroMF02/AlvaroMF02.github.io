@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del Proyecto</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <style>
+        section>h2 {
+            margin-top: 3rem;
+            font-size: 1.5rem;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery img {
+            flex: 1 1 300px;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .highlight-box {
+            background-color: #eef2ff;
+            border-left: 6px solid #118Dff;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.3rem;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🌿 AireVis – Análisis ambiental de contaminación y polen en 2024</h1>
+        <p>
+            Proyecto de análisis ambiental centrado en Villanueva del Arzobispo, usando datos del servicio CAMS
+            (Copernicus) de la Unión Europea.
+            Se ha procesado un año completo de datos de contaminación y niveles de polen, combinando y visualizando la
+            información con Python y Power BI.
+        </p>
+    </header>
+
+
+    <section>
+        <h2>Objetivo del proyecto</h2>
+        <p>
+            Este proyecto busca analizar los niveles de contaminación atmosférica y polen en Villanueva del Arzobispo
+            durante 2024,
+            usando datos oficiales proporcionados por el servicio CAMS de la Unión Europea.
+            El análisis se enfoca en mostrar los picos de exposición y la distribución de contaminantes a lo largo del
+            año.
+        </p>
+
+
+        <div class="highlight-box">
+            Se procesaron dos fuentes distintas (contaminación y polen), combinadas en Python para obtener un dataset
+            unificado y listo para visualizar en Power BI.
+        </div>
+
+
+        <h2>Tecnologías utilizadas</h2>
+        <ul>
+            <li><strong>Python:</strong> Obtención de datos desde la API REST de CAMS, limpieza y unión de tablas con
+                <code>pandas</code>
+            </li>
+            <li><strong>SQL:</strong> Almacenamiento estructurado de los datos preparados para Power BI</li>
+            <li><strong>Power BI:</strong> Dashboard con gráficos comparativos, mapas y evolución temporal de
+                contaminantes y pólenes</li>
+        </ul>
+
+
+        <h2>Funcionamiento del sistema</h2>
+        <ol>
+            <li>Se realizan dos peticiones a la API de CAMS para descargar los datos de contaminación y polen.</li>
+            <li>En Python, se limpian y transforman las tablas, eliminando duplicados y adaptando formatos.</li>
+            <li>Los datos se combinan para generar una única tabla con fechas, contaminantes y niveles de pólenes.</li>
+            <li>Power BI carga esta tabla y crea visualizaciones por día, mes y tipo de elemento.</li>
+        </ol>
+
+
+        <h2>Capturas del sistema</h2>
+        <div class="gallery">
+            <img src="images/PrincVVA.png" alt="Vista principar de los datos" />
+            <img src="images/SeleccAbrilVVA.png" alt="Selección de un mes" />
+        </div>
+
+        <h2>Desafíos y aprendizajes</h2>
+        <p>
+            Uno de los principales desafíos fue trabajar con dos fuentes de datos diferentes (contaminación y polen) que
+            requerían peticiones separadas a la API,
+            formatos distintos y procesos de limpieza independientes antes de poder combinarse.
+        </p>
+        <p>
+            También fue clave convertir grandes volúmenes de datos en visualizaciones útiles y comprensibles,
+            optimizando las relaciones en Power BI y
+            asegurando una representación clara de las variaciones mensuales. Aprendí a gestionar peticiones a APIs con
+            autenticación, a estructurar datasets limpios
+            y a crear dashboards informativos centrados en la salud ambiental.
+        </p>
+        <br>
+        <p>(El archivo dashboard esté en el repositorio)</p>
+
+        <br />
+        <p><a href="https://github.com/AlvaroMF02/AireVis-VVA" target="_blank">Repositorio en GitHub</a></p>
+        <br />
+
+        <a href="index.html" class="button">← Volver</a>
+    </section>
+</body>
+
+</html>
