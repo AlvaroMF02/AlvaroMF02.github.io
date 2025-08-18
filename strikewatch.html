@@ -3,133 +3,105 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalles de StrikeWatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StrikeWatch — Detalles del proyecto</title>
+    <meta name="description" content="Dashboard en tiempo real de caídas de rayos con Python, MySQL y Power BI." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
-    <style>
-        section>h2 {
-            margin-top: 3rem;
-            font-size: 1.5rem;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .gallery img {
-            flex: 1 1 300px;
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .highlight-box {
-            background-color: #eef2ff;
-            border-left: 6px solid #118Dff;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            font-size: 1rem;
-        }
-
-        ul,
-        ol {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            padding-left: 1.3rem;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <!-- Open Graph (opcional) -->
+    <meta property="og:title" content="StrikeWatch — Detalles del proyecto">
+    <meta property="og:description" content="Dashboard en tiempo real de caídas de rayos con Python, MySQL y Power BI.">
+    <meta property="og:image" content="images/PrincipalRayos.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
 
-    <header>
-        <h1>🌩 StrikeWatch – Dashboard en tiempo real de caídas de rayos</h1>
-        <p>
-            Visualización interactiva de rayos a nivel mundial con datos extraídos en tiempo real desde
-            <a href="https://map.blitzortung.org/" target="_blank" style="color: #a5b4fc;">Blitzortung</a>,
-            procesados en Python y representados en Power BI.
+    <header class="hero">
+        <nav class="topnav">
+            <a class="back" href="index.html" aria-label="Volver a inicio">← Volver</a>
+            <div class="spacer"></div>
+            <a class="ext" href="https://github.com/AlvaroMF02/StrikeWatch" target="_blank" rel="noopener">GitHub ↗</a>
+        </nav>
+
+        <h1>🌩 StrikeWatch — Dashboard de caídas de rayos</h1>
+        <p class="lead">
+            Visualización global de rayos con datos en tiempo real desde
+            <a class="link" href="https://map.blitzortung.org/" target="_blank" rel="noopener">Blitzortung</a>,
+            procesados en Python y mostrados en Power BI.
         </p>
+
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">asyncio</span>
+            <span class="tag">websockets</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Power BI</span>
+        </div>
     </header>
 
-    <section>
-        <h2>Objetivo del proyecto</h2>
-        <p>
-            StrikeWatch nace con el objetivo de monitorizar en tiempo real la actividad eléctrica global (me salió en Tiktok como reto),
-            facilitando la identificación de patrones de tormentas y permitiendo analizar la intensidad, ubicación y
-            tiempo de respuesta de cada rayo registrado.
-            Esta herramienta resulta útil tanto para investigación como para sistemas de alerta temprana.
-        </p>
+    <main class="container">
+        <section>
+            <h2>Objetivo</h2>
+            <p>
+                Monitorizar en tiempo real la actividad eléctrica global, identificar patrones de tormentas y analizar
+                intensidad, ubicación y latencia de detección de cada rayo.
+            </p>
+            <div class="highlight-box">
+                Recopila rayos y estaciones detectoras y los presenta con enfoque visual, analítico y geográfico.
+            </div>
+        </section>
 
-        <div class="highlight-box">
-            El proyecto recopila y visualiza los rayos caídos y las estaciones que los han detectado, con un enfoque
-            visual, analítico y geográfico.
+        <section>
+            <h2>Tecnologías</h2>
+            <ul class="checklist">
+                <li><strong>Python</strong>: extracción y limpieza (<code>asyncio</code>, <code>websockets</code>)</li>
+                <li><strong>MySQL</strong>: histórico con fecha/hora, país, polaridad, lat/lon</li>
+                <li><strong>Power BI</strong>: mapas, KPIs y tablas casi en tiempo real</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Arquitectura</h2>
+            <ol>
+                <li>Conexión al WebSocket de Blitzortung para recibir eventos.</li>
+                <li>Procesado en Python: enriquecimiento (región/país) y latencia.</li>
+                <li>Persistencia en MySQL optimizada para lectura desde Power BI.</li>
+                <li>Visualización y exploración en Power BI.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Capturas del dashboard</h2>
+            <p>Vista principal con KPIs diarios, mapa de rayos y mapa de estaciones.</p>
+            <div class="gallery">
+                <img src="images/PrincipalRayos.png" alt="Vista principal del dashboard de rayos" loading="lazy"
+                    width="1280" height="720">
+                <img src="images/SeleccionPorTablaRayos.png" alt="Selección por país en la tabla" loading="lazy"
+                    width="1280" height="720">
+                <img src="images/SeleccionPorRayo.png" alt="Detalle de un rayo seleccionado" loading="lazy" width="1280"
+                    height="720">
+            </div>
+        </section>
+
+
+        <div class="cta-row">
+            <a class="button" href="https://github.com/AlvaroMF02/StrikeWatch" target="_blank"
+                rel="noopener">Repositorio</a>
+            <a class="button ghost" href="index.html">← Volver</a>
         </div>
 
-        <h2>Tecnologías utilizadas</h2>
-        <ul>
-            <li><strong>Python:</strong> Extracción y limpieza de datos con <code>asyncio</code> y
-                <code>websockets</code></li>
-            <li><strong>MySQL:</strong> Almacenamiento histórico de rayos con atributos como fecha, hora, país,
-                polaridad, estación y lat/lon</li>
-            <li><strong>Power BI:</strong> Visualización dinámica con mapas, tablas y cálculos de respuesta en tiempo
-                real</li>
-        </ul>
+        <!-- Navegación entre proyectos (opcional) -->
+        <nav class="pager">
+            <a href="airevis.html" class="prev">← Proyecto anterior</a>
+            <a href="airevis.html" class="next">Siguiente proyecto →</a>
+        </nav>
+    </main>
 
-        <h2>Funcionamiento del sistema</h2>
-        <ol>
-            <li>Se conecta al WebSocket de Blitzortung.org para recibir datos en streaming en cuanto se detecta un rayo.
-            </li>
-            <li>Los datos son procesados en Python para enriquecerlos con región, país, y latencia de respuesta.</li>
-            <li>Se almacenan en una base de datos relacional (MySQL) con una estructura pensada para consultas rápidas
-                desde Power BI.</li>
-            <li>Power BI se encarga de leer los datos casi en tiempo real y mostrar mapas geográficos interactivos y una
-                tabla resumen diaria.</li>
-        </ol>
-
-        <h2>Capturas del dashboard ʕ•́ᴥ•̀ʔっ</h2>
-        <p>
-            A continuación se muestra una de las visualizaciones principales del proyecto, dividida en tres partes:
-        </p>
-        <ul>
-            <li><strong>Tabla "Hoy en cifras":</strong> muestra el recuento total de rayos por país, junto con la hora
-                exacta de caída y el tiempo de respuesta desde su detección.</li>
-            <li><strong>Mapa "Caídas de los rayos":</strong> representa geográficamente los rayos detectados, permitiendo identificar zonas activas.</li>
-            <li><strong>Mapa "Estaciones mundiales":</strong> muestra en qué lugares del mundo existen estaciones
-                receptoras, con mayor densidad en América del Norte y Europa. Por cada rayo se han guardado 5 estaciones.</li>
-        </ul>
-
-        <div class="gallery">
-            <img src="images/PrincipalRayos.png" alt="Vista principal del dashboard" />
-            <img src="images/SeleccionPorTablaRayos.png" alt="Seleccionando un país de la tabla" />
-            <img src="images/SeleccionPorRayo.png" alt="Seleccionando uno de los rayos de la tabla" />
-        </div>
-
-        <h2>Desafíos y aprendizajes </h2>
-        <p>
-            Uno de los principales desafíos fue mantener la integridad de los datos en tiempo real y asegurar la
-            estabilidad del sistema ante posibles errores de conexión o picos de tráfico.
-            Además, fue clave transformar los datos crudos en información útil para el usuario final, como calcular el
-            tiempo de respuesta y enriquecer los puntos con nombres de ciudades y países.
-        </p>
-        <p>
-            En el proceso aprendí sobre conexiones persistentes vía WebSocket, técnicas de limpieza de datos en flujo y
-            cómo optimizar la carga visual de mapas en Power BI para grandes volúmenes de puntos.
-        </p>
-        <br>
-        <p>(El archivo dashboard esté en el repositorio)</p>
-        <p><a href="https://github.com/AlvaroMF02/StrikeWatch" target="_blank">Repositorio en GitHub</a></p><br>
-
-        <a href="index.html" class="button">← Volver</a>
-    </section>
-
+    <footer class="site-footer">
+        © 2025 Álvaro Martínez Flores
+    </footer>
 
 </body>
 
