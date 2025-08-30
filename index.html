@@ -6,507 +6,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portafolio · Álvaro Martínez</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- <link rel="icon" href="/favicon.png" type="image/png"> -->
-    <style>
-        :root {
-            --bg: #0b0c10;
-            /* fondo base */
-            --bg-soft: #111218;
-            /* tarjetas */
-            --text: #e9eef7;
-            /* texto principal */
-            --muted: #b5c2d9;
-            /* texto secundario */
-            --primary: #6aa9ff;
-            /* acento */
-            --primary-2: #8b5cf6;
-            /* acento 2 */
-            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-            --radius: 16px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-            background: radial-gradient(1200px 600px at 20% -10%, rgba(107, 114, 255, .15), transparent 60%),
-                radial-gradient(1000px 500px at 120% 10%, rgba(59, 130, 246, .12), transparent 60%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* ===== HERO ===== */
-        header.hero {
-            position: relative;
-            overflow: clip;
-            padding: 80px 20px 60px;
-            text-align: center;
-            background:
-                linear-gradient(120deg, rgba(139, 92, 246, .28), rgba(106, 169, 255, .28)) padding-box,
-                radial-gradient(1200px 400px at 50% -10%, rgba(255, 255, 255, .08), transparent 60%);
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
-            isolation: isolate;
-        }
-
-        .hero .title {
-            font-weight: 800;
-            font-size: clamp(28px, 4vw, 48px);
-            letter-spacing: .3px;
-            line-height: 1.12;
-            margin: 0 0 10px;
-            background: linear-gradient(90deg, #fff, #b5c2d9);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, .06));
-        }
-
-        .hero .subtitle {
-            color: var(--muted);
-            font-size: clamp(14px, 2.2vw, 18px);
-            margin: 0 auto;
-            max-width: 820px;
-        }
-
-        /* orbes decorativos */
-        .hero::before,
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: -40% -20% auto auto;
-            width: 60vmin;
-            height: 60vmin;
-            background: radial-gradient(circle at 30% 30%, rgba(106, 169, 255, .25), transparent 60%);
-            filter: blur(30px);
-            transform: translateZ(0);
-            /* acelera */
-            z-index: -1;
-            animation: float 22s ease-in-out infinite;
-        }
-
-        .hero::after {
-            inset: auto auto -30% -10%;
-            width: 70vmin;
-            height: 70vmin;
-            background: radial-gradient(circle at 70% 70%, rgba(139, 92, 246, .25), transparent 60%);
-            animation-duration: 26s;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(-6px);
-            }
-
-            50% {
-                transform: translateY(6px);
-            }
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: min(1100px, 92%);
-            margin: 0 auto;
-        }
-
-        section {
-            padding: 56px 0;
-        }
-
-        h2.section-title {
-            font-size: clamp(20px, 2.4vw, 28px);
-            margin: 0 0 18px;
-            font-weight: 700;
-        }
-
-        p.lead {
-            color: var(--muted);
-            margin: 0;
-            max-width: 900px;
-        }
-
-        /* ===== CARDS ===== */
-        .grid {
-            display: grid;
-            gap: 18px;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            margin-top: 24px;
-        }
-
-        .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: var(--radius);
-            padding: 18px;
-            box-shadow: var(--shadow);
-            transition: transform .4s cubic-bezier(.2, .8, .2, 1), box-shadow .4s ease, border-color .3s ease;
-            transform-style: preserve-3d;
-        }
-
-        .card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 16px 50px rgba(0, 0, 0, .45);
-            border-color: rgba(255, 255, 255, .16);
-        }
-
-        .card h3 {
-            margin: 0 0 8px;
-            font-size: 18px;
-        }
-
-        .card p {
-            margin: 8px 0;
-            color: var(--muted);
-        }
-
-        .badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .badge {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .2px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            color: #e9eef7;
-            background: linear-gradient(90deg, rgba(106, 169, 255, .25), rgba(139, 92, 246, .25));
-            border: 1px solid rgba(255, 255, 255, .12);
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            margin-top: 12px;
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-2));
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: filter .25s ease, transform .25s ease;
-        }
-
-        .button:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-        }
-
-        .button:active {
-            transform: translateY(0);
-        }
-
-        /* ripple */
-        .button::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, .35), transparent 25%);
-            opacity: 0;
-            transition: opacity .35s ease;
-        }
-
-        .button.is-rippling::after {
-            opacity: 1;
-            animation: ripple 600ms ease-out forwards;
-        }
-
-        @keyframes ripple {
-            to {
-                opacity: 0;
-                transform: scale(2);
-            }
-        }
-
-        /* ===== EXTRAS ===== */
-        .list {
-            list-style: none;
-            padding: 0;
-            margin: 8px 0 0;
-        }
-
-        .list li {
-            margin: 6px 0;
-            color: var(--muted);
-        }
-
-        .list a {
-            color: #c8d9ff;
-            text-decoration: none;
-            border-bottom: 1px dashed rgba(200, 217, 255, .35);
-        }
-
-        .list a:hover {
-            border-bottom-color: transparent;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--muted);
-            padding: 46px 0 60px;
-            border-top: 1px solid rgba(255, 255, 255, .08);
-        }
-
-        .link {
-            color: white;
-            text-decoration: none;
-        }
-
-
-        /* ===== REVEAL ON SCROLL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* ===== ACCESSIBILITY ===== */
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: .001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .001ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon" href="images/favicon.ico" type="image/png">
+    <meta name="description"
+        content="Portafolio de proyectos de análisis de datos de Álvaro Martínez: Power BI, Excel, Python, SQL.">
 </head>
 
-<body>
-    <header class="hero">
-        <div class="container">
-            <h1 class="title">Álvaro Martínez Flores</h1>
-            <p class="subtitle">
-                Data Analyst &amp; AI Enthusiast · Me especializo en <strong>análisis y limpieza de datos</strong> con
-                Python y SQL para convertir datos en decisiones.
-            </p>
-
+<body id="About">
+    <!-- Header inmovil -->
+    <header id="headerFix" aria-label="Hero">
+        <div class="left">
+            U ´ᴥ` U
+        </div>
+        <div class="right">
+            <a href="#About">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Contact">Contact</a>
         </div>
     </header>
 
     <main class="container">
-        <!-- Resumen -->
-        <section class="reveal">
-            <h2 class="section-title">Resumen profesional</h2>
-            <p class="lead">Desarrollador Back‑End y Analista de Datos con especialización en Inteligencia Artificial y
-                Big Data. Experiencia en APIs, tratamiento y modelado de datos y creación de dashboards. Dominio de
-                Python, SQL y herramientas de visualización.</p>
-            <div class="badge-row" aria-hidden="true" style="margin-top:14px">
-                <span class="badge">Python</span>
-                <span class="badge">Scikit‑learn</span>
-                <span class="badge">Pandas</span>
-                <span class="badge">PHP</span>
-                <span class="badge">SQL</span>
-                <span class="badge">Power BI</span>
-                <span class="badge">Excel</span>
-                <span class="badge">n8n</span>
-                <span class="badge">Servicios en nube</span>
-            </div>
-        </section>
-        <!-- Sobre mí -->
-        <section id="sobre-mi" class="reveal">
-            <span class="kicker">Sobre mí</span>
-            <h2 class="section-title">Quién soy y qué me mueve</h2>
 
-            <div class="about">
-                <!-- Columna izquierda: texto principal + puntos fuertes -->
-                <div class="card soft">
-                    <p class="lead" style="margin-top:0">
-                        Soy Técnico Superior en <strong>Desarrollo de Aplicaciones Web</strong> (Estepona) y cuento con
-                        una
-                        <strong>especialización en IA y Big Data</strong> (Málaga).
-                        Lo que más disfruto es <strong>analizar</strong> y, sobre todo, <strong>limpiar y preparar
-                            datos</strong>
-                        para que cuenten historias útiles y ayuden a decidir mejor.
+        <!-- SOBRE MÍ -->
+        <section class="sobre-mi">
+            <div class="about-grid">
+                <figure class="about-photo">
+                    <!-- TODO: cambia la ruta de tu foto -->
+                    <img src="images/yo.jpg" alt="Foto de Álvaro Martínez" />
+                    <figcaption>
+                        <div class="nombre">Álvaro Martínez Flores</div>
+                        <div class="rol">Analista de datos · IA & Big Data</div>
+                        <div class="rol">Programador BackEnd</div>
+                    </figcaption>
+                </figure>
+
+                <div class="about-card card">
+                    <p>
+                        Soy <strong>Álvaro</strong>, analista de datos orientado a transformar datos en
+                        información clara para la toma de decisiones dentro de la empresa. Me gusta trabajar con
+                        <strong>Python</strong>,
+                        <strong>SQL</strong>, <strong>Power BI</strong> y <strong>Excel</strong>, siempre con un foco en
+                        la
+                        limpieza de datos y la visualización de estos.
                     </p>
-
-                    <div style="margin-top:14px">
-                        <h3 style="margin:0 0 6px">Puntos fuertes</h3>
-                        <div class="strengths">
-                            <article class="card">
-                                <p><strong>Dashboards</strong><br><span class="muted">Power BI y Excel para insights
-                                        claros</span></p>
-                            </article>
-                            <br>
-                            <article class="card">
-                                <p><strong>Limpieza & Normalización</strong><br><span class="muted">nulos, outliers,
-                                        tipos, reglas</span></p>
-                            </article>
-                            <br>
-                            <article class="card">
-                                <p><strong>EDA con Python/SQL</strong><br><span class="muted">pandas, consultas,
-                                        validaciones rápidas</span></p>
-                            </article>
-                            <br>
-                            <article class="card">
-                                <p><strong>Modelado básico</strong><br><span class="muted">scikit‑learn para baseline
-                                        sólidos</span></p>
-                            </article>
-                            <br>
-                            <article class="card">
-                                <p><strong>Automatización</strong><br><span class="muted">pipelines, APIs, scraping,
-                                        n8n</span></p>
-                            </article>
-                            <br>
-                        </div>
-                    </div>
-
-                    <div class="cta-row">
-                        <a class="button" href="files/CV Alvaro Martinez.pdf" download>Descargar CV</a>
-                        <a class="button" href="mailto:alvaromarflo@gmail.com">Hablemos</a>
-                    </div>
-                </div>
-
-                <!-- Columna derecha: formación + stack favorito -->
-                <div class="">
-                    <div class="card">
-                        <h3 style="margin:0 0 8px">Formación</h3>
-                        <div class="timeline">
-                            <div class="item">
-                                <p class="title">Desarrollo de Aplicaciones Web</p>
-                                <p class="where">Estepona · Ciclo Formativo de Grado Superior</p>
-                            </div>
-                            <div class="item">
-                                <p class="title">Especialización en IA y Big Data</p>
-                                <p class="where">Málaga · Analítica, ML y pipelines de datos</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="margin-top:12px">
-                        <h3 style="margin:0 0 8px">Lo que más disfruto</h3>
-                        <div class="pills">
-                            <span class="pill">Limpieza de datos</span>
-                            <span class="pill">Validación de calidad</span>
-                            <span class="pill">EDA rápido</span>
-                            <span class="pill">Power BI</span>
-                            <span class="pill">Automatizar tareas</span>
-                            <span class="pill">APIs & scraping</span>
-                        </div>
-                    </div>
+                    <p>
+                        He trabajado en proyectos personales como <em>StrikeWatch</em> (detección de rayos por todo el
+                        mundo),
+                        <em>AireVis</em> (análisis de la calidad del aire de mi pueblo) y un proyecto de <em>Excel
+                            Analytics</em>(limpieza, analisis y dashboards). Mis mayores intereses son el
+                        <strong>análisis exploratorio</strong>, el
+                        <strong>analisis de los datos</strong> y la creación de <strong>dashboards</strong> que aporten
+                        valor real a la empresa.
+                    </p>
+                    <a class="btn btnGit" href="files/CV Alvaro Martinez.pdf" download>Descargar CV</a>
                 </div>
             </div>
         </section>
 
+        <!-- LAYOUT DOS COLUMNAS -->
+        <section class="grid-2col">
+            <!-- COLUMNA IZQUIERDA -->
+            <aside class="sidebar">
 
-        <!-- Proyectos -->
-        <section class="reveal">
-            <h2 class="section-title">Proyectos</h2>
-            <div class="grid">
-                <article class="card tilt">
-                    <h3>🌩 Dashboard en tiempo real de caídas de rayos</h3>
-                    <p>Visualización global en tiempo real desde <a href="https://map.blitzortung.org/" target="_blank"
-                            class="link" rel="noopener">Blitzortung</a> (WebSocket). Ingesta en MySQL y dashboard en
-                        Power BI con
-                        detalles de ubicación, hora, polaridad y estaciones.</p>
-                    <div class="badge-row">
-                        <span class="badge">Python (asyncio, websockets)</span>
-                        <span class="badge">Power BI</span>
-                        <span class="badge">MySQL</span>
-                    </div>
-                    <a class="button" href="strikewatch.html">Ver más</a>
-                </article>
+                <!-- CONTÁCTAME -->
+                <div class="card contact">
+                    <h3 id="Contact">Contáctame</h3>
+                    <a class="chip chip-ghost" href="mailto:tuemail@ejemplo.com">alvaromarflo@gmail.com</a>
 
-                <article class="card tilt">
-                    <h3>🌿 Contaminación y polen en Villanueva del Arzobispo</h3>
-                    <p>Análisis anual 2024 usando la API de CAMS (UE). Integración de dos fuentes para un dataset
-                        completo y visualizaciones comparativas.</p>
-                    <div class="badge-row">
-                        <span class="badge">Python (pandas, requests)</span>
-                        <span class="badge">Power BI</span>
-                        <span class="badge">SQL</span>
-                    </div>
-                    <a class="button" href="airevis.html">Ver más</a>
-                </article>
+                    <a class="chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/varomf">
+                        <img class="logos" src="images/linkdin.png" alt="Logo de linkedin">
+                        <div>LinkedIn</div>
+                    </a>
+                    <a class="chip" target="_blank" rel="noreferrer" href="https://github.com/AlvaroMF02">
+                        <img class="logos" src="images/github.png" alt="Logo de linkedin">
+                        <div>Github</div>
+                    </a>
+                </div>
 
-                <article class="card tilt">
-                    <h3>📊 Análisis de datos en Excel</h3>
-                    <p>Limpieza, transformación y <em>dashboards</em> con tablas dinámicas, funciones avanzadas y
-                        gráficos interactivos para extraer <em>insights</em> de datos en bruto.</p>
-                    <div class="badge-row">
-                        <span class="badge">Excel</span>
-                        <span class="badge">Power Query</span>
-                        <span class="badge">Dashboards</span>
+                <!-- HABILIDADES -->
+                <div class="card skills">
+                    <h3>Mis habilidades</h3>
+                    <ul class="skills-list">
+                        <li>Python</li>
+                        <li>Power BI</li>
+                        <li>Excel</li>
+                        <li>SQL</li>
+                        <li>pandas</li>
+                        <li>numpy</li>
+                        <li>matplotlib</li>
+                        <li>Dashboards & Reporting</li>
+                        <li>ETL básico</li>
+                        <li>Web scraping</li>
+                        <li>MySQL</li>
+                        <li>PHP</li>
+                        <li>Codeigniter</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+
+            </aside>
+
+            <!-- COLUMNA DERECHA: PROYECTOS -->
+            <section class="main-col">
+                <div class="card projects-header">
+                    <div class="projects-title">
+                        <img src="images/favicon.ico" alt="" aria-hidden="true">
+                        <h2 id="Projects">Portafolio de proyectos</h2>
                     </div>
-                    <a class="button" href="excel.html">Ver más</a>
-                </article>
-            </div>
+                    <!-- Cambio futuro, poner un filtro a base de las tecnologias usadas -->
+                    <!-- <div class="projects-tabs">        
+                        <button class="tab active" type="button">Dashboards</button>
+                        <button class="tab" type="button">Vista general</button>
+                    </div> -->
+                </div>
+
+                <!-- GRID DE TARJETAS -->
+                <div class="projects-grid">
+
+                    <!-- PROYECTO 1 -->
+                    <article class="project-card" data-modal="modal-strikewatch">
+                        <div class="thumb">
+                            <!-- TODO: reemplaza por tu miniatura -->
+                            <img src="images/Strikewatch1.png" alt="StrikeWatch dashboard">
+                        </div>
+                        <div class="p-body">
+                            <h3>StrikeWatch</h3>
+                            <p class="meta">
+                                <span class="badge">Power BI</span>
+                                <span class="badge">Python</span>
+                                <span class="badge">MySQL</span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- PROYECTO 2 -->
+                    <article class="project-card" data-modal="modal-airevis">
+                        <div class="thumb">
+                            <img src="images/PrincVVA.png" alt="AireVis dashboard">
+                        </div>
+                        <div class="p-body">
+                            <h3>AireVis</h3>
+                            <p class="meta">
+                                <span class="badge">Power BI</span>
+                                <span class="badge">Python</span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- PROYECTO 3 -->
+                    <article class="project-card" data-modal="modal-excel">
+                        <div class="thumb">
+                            <img src="images/excel1.png" alt="Excel Analysis">
+                        </div>
+                        <div class="p-body">
+                            <h3>Excel</h3>
+                            <p class="meta">
+                                <span class="badge">Excel</span>
+                                <span class="badge">ETL</span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Añade más project-card repitiendo la estructura -->
+                </div>
+            </section>
         </section>
 
-        <!-- Extras -->
-        <section class="reveal">
-            <h2 class="section-title">Extras</h2>
-            <ul class="list">
-                <li><a href="https://github.com/AlvaroMf02" target="_blank" rel="noopener">GitHub</a> · <a
-                        href="https://www.linkedin.com/in/varomf/" target="_blank" rel="noopener">LinkedIn</a> · <a
-                        href="mailto:alvaromarflo@gmail.com">Correo electrónico</a></li>
-                <li><a href="CV Alvaro Martinez.pdf" download>Descargar CV</a></li>
-            </ul>
+        <!-- CERTIFICACIONES / RECONOCIMIENTOS -->
+        <section class="section-table">
+            <div class="card">
+                <div class="table-header">
+                    <h3>Certificaciones</h3>
+                    <!-- (iconitos de orden/búsqueda puramente visuales) -->
+                    <div class="table-actions" aria-hidden="true">⋮</div>
+                </div>
+
+                <div class="table">
+                    <div class="thead">
+                        <div>Título</div>
+                        <div>Tipo</div>
+                        <div>Organización</div>
+                        <div>Fecha</div>
+                        <div>URL</div>
+                    </div>
+
+                    <!-- Fila ejemplo -->
+                    <div class="trow">
+                        <div>Especialización IA & Big Data</div>
+                        <div><span class="badge soft">Especialización</span></div>
+                        <div>Digitech</div>
+                        <div>2025</div>
+                        <div>—</div>
+                    </div>
+
+                    <div class="trow">
+                        <div>Desarrollo de Aplicaciones Web</div>
+                        <div><span class="badge soft">Grado Superior</span></div>
+                        <div>IES Mar del Alboran</div>
+                        <div>2024</div>
+                        <div>—</div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+    <footer id="footerFix" aria-label="Footer">
+        <div class="mid">
+            <a href="https://www.linkedin.com/in/varomf">LinkedIn</a>
+            <a href="https://github.com/AlvaroMF02">GitHub</a>
+        </div>
+    </footer>
 
-    <footer class="reveal">© 2025 Álvaro Martínez Flores · Todos los derechos reservados.</footer>
+
+    <!-- MODALS (ventanas emergentes) -->
+    <!-- STRIKEWATCH -->
+    <div class="modal" id="modal-strikewatch" aria-hidden="true" role="dialog" aria-labelledby="mw-title-1">
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Cerrar">✕</button>
+            <h3 id="mw-title-1">StrikeWatch — Rayos en tiempo real</h3>
+            <p>
+                Hecho la mayoría en <strong>Python</strong> (asyncio + websockets) conectado a un WebSocket público, después de una
+                limpieza de los datos
+                se usó <strong>MySQL</strong> para ir añadiendolos a un server privado, el modelado y la visualización
+                se hizo con <strong>Power BI</strong>.
+                (El resultado es un poco cutre pero la idea me gusta, solo neceista un cambio de diseño)
+            </p>
+            <div class="modal-gallery">
+                <figcaption>
+                    Vista principal del dashboard. Con las cifras de los ultimos rayos que hayan caido y dos mapas, el
+                    principal muestra la caida de los rayos,
+                    mientras que le secundario muestra las estaciones que han detectado los rayos
+                </figcaption>
+                <img src="images/Strikewatch1.png" alt="Captura 1 StrikeWatch">
+                <figcaption>
+                    Al pulsar un rayo en la tabla nos muestra todos los rayos que han caido en esa zona (Durici, 9
+                    rayos) y las estaciones que han recogido esos datos
+                </figcaption>
+                <img src="images/Strikewatch2.png" alt="Captura 1 StrikeWatch">
+                <figcaption>
+                    Al pulsar en un rayo en concrteto dentro del mapa principal, la tabla nos muestra ese rayo y el mapa
+                    secundario las estaciones que han recogido sus datos.
+                    Normalmente suele haber entre 3 y 10 estaciones que recogen los rayos pero solo se pusieron 5 para
+                    mejorar el programa y evitar la lentitud
+                </figcaption>
+                <img src="images/Strikewatch3.png" alt="Captura 1 StrikeWatch">
+
+            </div>
+            <div class="modal-actions">
+                <a class="btn btnGit" href="https://github.com/AlvaroMF02/StrikeWatch" target="_blank"
+                    rel="noreferrer">Ver en Github</a>
+                <a class="btn ghost" href="files/strikewatch.pbix" download>Descargar archivo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AIREVIS -->
+    <div class="modal" id="modal-airevis" aria-hidden="true" role="dialog" aria-labelledby="mw-title-2">
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Cerrar">✕</button>
+            <h3 id="mw-title-2">AireVis — Contaminación y polen (VVA 2024)</h3>
+            <p>
+                Los datos fueron sacados de la API de CAMS/ECMWF, teniendo que hacer dos peticiones ya que la web no soportaba descargas tan grandes.
+                La limpieza de los datos se hizo mayormente con <strong>pandas</strong> y la visualización en
+                <strong>Power BI</strong>.
+            </p>
+            <div class="modal-gallery">
+                <figure>
+                    <figcaption>
+                        Vista principal del dashboard. En la parte de la izquierda se puede ver una breve explicación de
+                        algunos atributos y el promedio de valores en 2024 medido en microgramos por metro cúbico.
+                        A la derecha encontramos un promedio de granos de polem por metro cubico por cada mes del año y
+                        una relación entre las particulas gruesas y finas durante 2024
+                    </figcaption>
+                    <img src="images/PrincVVA.png" alt="Vista principal del dashboard de contaminación y polen"
+                        loading="lazy">
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        Al pulsar el mes de abril se puede ver más resaltado en el promedio de valores y en el promedio
+                        de polem. También se puede observar que durante el mes de abril los dias 6 y 7 tubieron una
+                        subida de particulas gruesas y finas.
+                    </figcaption>
+                    <img src="images/SeleccAbrilVVA.png" alt="Selección de un mes en el dashboard" loading="lazy">
+                </figure>
+
+            </div>
+            <div class="modal-actions">
+                <a class="btn btnGit" href="https://github.com/AlvaroMF02/AireVis-VVA" target="_blank"
+                    rel="noreferrer">Ver en Github</a>
+                <a class="btn ghost" href="files/airevis.pbix" download>Descargar archivo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXCEL -->
+    <div class="modal" id="modal-excel" aria-hidden="true" role="dialog" aria-labelledby="mw-title-3">
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Cerrar">✕</button>
+            <h3 id="mw-title-3">Excel Analytics — datos de empresas millonarias</h3>
+            <p>
+                Me animé a hacer proyectos en excel ya que le veía bastante futuro, hice muchos pero creo que este es el mas vistoso.
+                Los datos no venian tan sucios como me esperaba, todo lo que hice fue con ayuda de varios videos ya que lo quería entender todo bien.
+            </p>
+            <div class="modal-gallery">
+                <figure>
+                    <figcaption>
+                        Vista principal del dashboard
+                    </figcaption>
+                    <img src="images/excel1.png" alt="Vista principal del dashboard" loading="lazy">
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        Primer filtro aplicado, mostrando datos segmentados de Amazon
+                    </figcaption>
+                    <img src="images/excel2.png" alt="Filtro activado Amazon" loading="lazy">
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        Filtros adicionales por zona geográfica en USA y por año
+                    </figcaption>
+                    <img src="images/excel3.png" alt="Filtro zona USA y año" loading="lazy">
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        Tablas dinámicas utilizadas como base para la creación del dashboard
+                    </figcaption>
+                    <img src="images/excel4.png" alt="Pivot Tables" loading="lazy">
+                </figure>
+
+                <figure>
+                    <figcaption>
+                        Conjunto de datos inicial en Excel limpios y analizados
+                    </figcaption>
+                    <img src="images/excel5.png" alt="Vista general de datos" loading="lazy">
+                </figure>
+            </div>
+            <div class="modal-actions">
+                <a class="btn ghost" href="files/CocaCola.xlsx" download>Descargar archivo</a>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // ===== Reveal on scroll =====
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-        }, { threshold: .1 });
-        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        // Modal logic
+        const cards = document.querySelectorAll('.project-card');
+        const modals = document.querySelectorAll('.modal');
 
-        // ===== Tilt on hover (cards) =====
-        const limit = 10; // grados max
-        document.querySelectorAll('.tilt').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const r = card.getBoundingClientRect();
-                const x = e.clientX - r.left; const y = e.clientY - r.top;
-                const rx = ((y / r.height) - .5) * -2 * limit;  // invertido para X
-                const ry = ((x / r.width) - .5) * 2 * limit;  // invertido para Y
-                card.style.transform = `translateY(-6px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.getAttribute('data-modal');
+                const modal = document.getElementById(id);
+                if (modal) {
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('no-scroll');
+                }
             });
-            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
         });
 
-        // ===== Button ripple & pointer coords =====
-        document.querySelectorAll('.button').forEach(btn => {
-            btn.addEventListener('pointermove', (e) => {
-                const r = btn.getBoundingClientRect();
-                btn.style.setProperty('--x', `${e.clientX - r.left}px`);
-                btn.style.setProperty('--y', `${e.clientY - r.top}px`);
+        modals.forEach(m => {
+            m.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
+                    m.classList.remove('open');
+                    m.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('no-scroll');
+                }
             });
+        });
+
+        // Tabs (decorativas)
+        document.querySelectorAll('.projects-tabs .tab').forEach(btn => {
             btn.addEventListener('click', () => {
-                btn.classList.remove('is-rippling'); // reinicia animación
-                void btn.offsetWidth;
-                btn.classList.add('is-rippling');
-                setTimeout(() => btn.classList.remove('is-rippling'), 650);
+                document.querySelectorAll('.projects-tabs .tab').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
             });
         });
     </script>
