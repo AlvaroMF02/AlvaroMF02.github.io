@@ -301,6 +301,10 @@ a.chip {
     vertical-align: middle;
     margin-right: 10px;
 }
+a.chip:hover {
+    background-color: #550000;
+    color: white;
+}
 
 a.chip img {
     vertical-align: middle;
@@ -325,7 +329,6 @@ a.chip div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px
 }
 
 .table {
@@ -420,7 +423,7 @@ a.chip div {
 
 .modal-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
     gap: 10px;
     margin: 14px 0;
 }
