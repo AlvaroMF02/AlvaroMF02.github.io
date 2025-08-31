@@ -301,6 +301,7 @@ a.chip {
     vertical-align: middle;
     margin-right: 10px;
 }
+
 a.chip:hover {
     background-color: #550000;
     color: white;
@@ -455,22 +456,64 @@ a.chip div {
     color: #550000;
     border: 2px solid #550000;
 }
-.btn.ghost:hover{
+
+.btn.ghost:hover {
     background: #550000;
     color: white;
     border: 2px solid #550000;
 }
 
-a.btnGit{
+a.btnGit {
     background: #550000;
     border: none;
     color: white;
     border: 2px solid #550000;
 }
-a.btnGit:hover{
+
+a.btnGit:hover {
     background: white;
     color: #550000;
 }
+
+#certificaciones {
+    padding: 2rem 1rem;
+}
+
+.cert-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.cert-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.cert-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.cert-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #007acc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cert-card a:hover {
+    text-decoration: underline;
+}
+
 
 footer#footerFix {
     width: 100%;
@@ -486,12 +529,14 @@ footer#footerFix {
     padding: 0 2%;
     /* para que no se pegue a los bordes */
 }
+
 footer#footerFix {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-footer#footerFix div{
+
+footer#footerFix div {
     width: 100%;
     display: flex;
     justify-content: center;
