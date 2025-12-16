@@ -32,7 +32,6 @@
         <section class="sobre-mi">
             <div class="about-grid">
                 <figure class="about-photo">
-                    <!-- TODO: cambia la ruta de tu foto -->
                     <img src="images/yo.jpeg" alt="Foto de Álvaro Martínez" />
                     <figcaption>
                         <div class="nombre">Álvaro Martínez Flores</div>
@@ -72,7 +71,7 @@
                 <!-- CONTÁCTAME -->
                 <div class="card contact">
                     <h3 id="Contact">Contáctame</h3>
-                    <a class="chip chip-ghost" href="mailto:tuemail@ejemplo.com">alvaromarflo@gmail.com</a>
+                    <a class="chip chip-ghost" href="mailto:alvaromarflo@gmail.com">alvaromarflo@gmail.com</a>
 
                     <a class="chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/varomf">
                         <img class="logos" src="images/linkdin.png" alt="Logo de linkedin">
@@ -116,19 +115,20 @@
                         <h2 id="Projects">Portafolio de proyectos (más por venir)</h2>
                     </div>
                     <!-- Cambio futuro, poner un filtro a base de las tecnologias usadas -->
-                    <!-- <div class="projects-tabs">        
-                        <button class="tab active" type="button">Dashboards</button>
-                        <button class="tab" type="button">Vista general</button>
-                    </div> -->
+                    <div class="projects-tabs">
+                        <button class="tab active" type="button" data-filter="all">Todos</button>
+                        <button class="tab" type="button" data-filter="Power BI">Power BI</button>
+                        <button class="tab" type="button" data-filter="Excel">Excel</button>
+                        <button class="tab" type="button" data-filter="Python">Python</button>
+                    </div>
                 </div>
 
                 <!-- GRID DE TARJETAS -->
                 <div class="projects-grid">
 
                     <!-- PROYECTO 1 -->
-                    <article class="project-card" data-modal="modal-strikewatch">
+                    <article class="project-card" data-modal="modal-strikewatch" data-category="Power BI Python MySQL">
                         <div class="thumb">
-                            <!-- TODO: reemplaza por tu miniatura -->
                             <img src="images/Strikewatch1.png" alt="StrikeWatch dashboard">
                         </div>
                         <div class="p-body">
@@ -142,7 +142,7 @@
                     </article>
 
                     <!-- PROYECTO 2 -->
-                    <article class="project-card" data-modal="modal-airevis">
+                    <article class="project-card" data-modal="modal-airevis" data-category="Power BI Python">
                         <div class="thumb">
                             <img src="images/airevis1.png" alt="AireVis dashboard">
                         </div>
@@ -156,7 +156,7 @@
                     </article>
 
                     <!-- PROYECTO 3 -->
-                    <article class="project-card" data-modal="modal-excel">
+                    <article class="project-card" data-modal="modal-excel" data-category="Excel">
                         <div class="thumb">
                             <img src="images/Excel1.png" alt="Excel Analysis">
                         </div>
@@ -296,7 +296,8 @@
 
                 <figure>
                     <figcaption>
-                        Filtrado por el polen de los olivos, se puede ver que los meses abril y mayo es donde se encuentra la mayor cantidad de polen
+                        Filtrado por el polen de los olivos, se puede ver que los meses abril y mayo es donde se
+                        encuentra la mayor cantidad de polen
                     </figcaption>
                     <img src="images/airevis3.png" alt="Selección de un mes en el dashboard" loading="lazy">
                 </figure>
@@ -390,11 +391,31 @@
             });
         });
 
-        // Tabs (decorativas)
-        document.querySelectorAll('.projects-tabs .tab').forEach(btn => {
+        // Tabs (Filtering Logic)
+        const filterBtns = document.querySelectorAll('.projects-tabs .tab');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.projects-tabs .tab').forEach(b => b.classList.remove('active'));
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
                 btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category');
+                        if (categories && categories.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
             });
         });
     </script>
